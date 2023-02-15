@@ -149,7 +149,7 @@ class ImageComparison extends HTMLElement {
     );
 
     // Helper vars
-    let pressed = false;
+    let moving = false;
     let imageContainerWidth = imageContainer.getBoundingClientRect().width;
     let sliderPosRatio = 0.5;
 
@@ -170,19 +170,19 @@ class ImageComparison extends HTMLElement {
     // Start slide
     function slideStart(e) {
       e.preventDefault();
-      pressed = true;
+      moving = true;
       window.addEventListener("pointermove", slideMove);
     }
 
     // Stop slide
     function slideStop() {
-      pressed = false;
+      moving = false;
     }
 
     // Slider move
     function slideMove(e) {
       // Guard clause
-      if (!pressed) return false;
+      if (!moving) return false;
       let newPos = e.clientX - imageContainer.getBoundingClientRect().left;
       // Dont position slider outside the image
       if (newPos < 0) {
