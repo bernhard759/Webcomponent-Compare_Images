@@ -125,6 +125,8 @@ class ImageComparison extends HTMLElement {
     function slideMove(e) {
       // Guard clause
       if (!moving) return;
+      // We use the max value of 0 and the min value of the position minus the container left and the container width 
+      // this makes sure we always stay in bounds of the container
       const newPos =
         (Math.max(
           0,
