@@ -7,7 +7,7 @@ class ImageComparison extends HTMLElement {
 
     // Custom element dataset
     //console.log(this.dataset.image1);
-    
+
     // HTML template
     const template = document.createElement("template");
     template.innerHTML = `
@@ -106,7 +106,7 @@ class ImageComparison extends HTMLElement {
         border-radius: 50%;
         top: 50%;
         left: 50%;
-        transform: translate3d(-50%, -50%, 0);
+        transform: translate(-50%, -50%);
     }
 
     .img-comp__slider::before {
@@ -187,8 +187,8 @@ class ImageComparison extends HTMLElement {
       // Dont position slider outside the image
       if (newPos < 0) {
         newPos = 0;
-      } else if (newPos > imageContainer.getBoundingClientRect().width) {
-        newPos = imageContainer.getBoundingClientRect().width;
+      } else if (newPos > imageContainer.getBoundingClientRect().width - 4) {
+        newPos = imageContainer.getBoundingClientRect().width - 4;
       }
       // Set new slider position
       slider.style.left = newPos + "px";
